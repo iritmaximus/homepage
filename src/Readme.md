@@ -14,3 +14,9 @@
 ##Youtube Video player
 * TODO audio on on startup?
 * TODO make it the correct size later make it scale with screen size
+
+#TODO
+
+* Implement excercise thing
+* https://www.youtube.com/watch?v=zkU6Ok44_CI
+* Keep count of the daily things I am supposed to do

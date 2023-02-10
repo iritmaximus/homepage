@@ -3,11 +3,14 @@ import Youtube, { YouTubeProps } from "react-youtube";
 
 // helper functions
 import {
-  IYoutubeProps, ITrackName,
-  youtubeUrlParser, AddPlaylist, toggleAddPlaylist,
+  ITrackName,
+  AddPlaylist, toggleAddPlaylist,
   tempList
 } from "./MusicHelper";
 
+import {
+  YoutubeVideo
+} from "../Youtube/Youtube";
 
 
 
@@ -33,34 +36,6 @@ import {
 
 
 
-const YoutubeVideo = ({ videoUrl }: IYoutubeProps): JSX.Element => {
-
-  console.log("Trying to render the yt video");
-  const videoId = youtubeUrlParser(videoUrl);
-
-  if (videoId === "error") {
-    return (
-      <h1>Error loading youtube video</h1>
-    );
-  }
-
-  const opts: YouTubeProps["opts"] = {
-    playerVars: {
-      // TODO for testing purposes lol
-      autoplay: 0,
-      controls: 0,
-      loop: 1,
-      // TODO this will be useful
-      // playlist: []
-    },
-  };
-
-  return (
-  <>
-    <Youtube videoId={videoId} opts={opts} />
-  </>
-  );
-};
 
 
 

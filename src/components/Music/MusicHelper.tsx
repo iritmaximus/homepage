@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // placeholder for videos
 import gif from "../../assets/lofihiphop.gif";
+import {youtubeUrlParser, testThings} from "../Youtube/youtubeHelper";
 
 // type definitions
 export type MusicControlState = React.Dispatch<React.SetStateAction<boolean>>
@@ -14,9 +15,6 @@ export type InputEvent = React.ChangeEvent<HTMLInputElement>
 export interface ITrackName {
   name: string,
   key: string
-}
-export interface IYoutubeProps {
-  videoUrl: string
 }
 
 export const tempList = [
@@ -46,24 +44,6 @@ export const LofiVideo = (): JSX.Element => {
 
 
 
-export const youtubeUrlParser = (url:string): string => {
-
-  if (url) {
-    try {
-      const urlId = url.split("v=")[1].split("&")[0];
-      console.info(url, "->", urlId);
-      return urlId;
-    } catch (e) {
-      console.error("Incorrect url");
-      return "error";
-    }
-  }
-
-  console.error("Incorrect url");
-  return "error";
-};
-
-
 
 
 
@@ -83,8 +63,10 @@ export const AddPlaylist = (): JSX.Element => {
 
   const handleClick = () => {
     const youtubeId = youtubeUrlParser(newPlaylist);
-    console.log(newPlaylist);
-    console.log(youtubeId);
+    testThings();
+    if (youtubeId === "error") {
+      console.error("Adding new playlist failed...");
+    }
   };
 
   return (
